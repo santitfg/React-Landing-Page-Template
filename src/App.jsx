@@ -13,7 +13,10 @@ import SmoothScroll from "smooth-scroll";
 import "./App.css";
 import TagManager from 'react-gtm-module'
 
- 
+  
+const tagManagerArgs = {
+  gtmId: 'GTM-MHDKCQF'
+}
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -22,16 +25,13 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
- 
-  const tagManagerArgs = {
-    gtmId: 'GTM-MHDKCQF'
-}
+
 
   useEffect(() => {
     setLandingPageData(JsonData);
-    TagManager.initialize(tagManagerArgs)
 
   }, []);
+  TagManager.initialize(tagManagerArgs)
 
   return (
     <div>
