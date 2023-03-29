@@ -12,11 +12,7 @@ import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
 import TagManager from 'react-gtm-module'
-import ReactGA from 'react-ga';
 
-ReactGA.initialize('G-MKFPF2B33C');
-ReactGA.pageview(window.location.pathname + window.location.search);
-  
 const tagManagerArgs = {
   gtmId: 'GTM-MHDKCQF'
 }
