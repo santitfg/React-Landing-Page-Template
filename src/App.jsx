@@ -12,11 +12,22 @@ import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
 import TagManager from 'react-gtm-module'
+import ReactGA from 'react-ga';
 
+ReactGA.initialize('G-MKFPF2B33C');
+ReactGA.pageview(window.location.pathname + window.location.search);
   
 const tagManagerArgs = {
   gtmId: 'GTM-MHDKCQF'
 }
+TagManager.initialize(tagManagerArgs)
+
+TagManager.dataLayer({
+  dataLayer:{
+    event:"pageview",
+    path:"/home/"
+  }
+});
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -31,7 +42,6 @@ const App = () => {
     setLandingPageData(JsonData);
 
   }, []);
-  TagManager.initialize(tagManagerArgs)
 
   return (
     <div>

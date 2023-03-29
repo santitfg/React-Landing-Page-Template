@@ -1,6 +1,7 @@
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import React from "react";
+import TagManager from 'react-gtm-module'
 
 const initialState = {
   name: "",
@@ -19,6 +20,14 @@ export const Contact = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(name, email, message);
+    TagManager.dataLayer({
+      dataLayer:{
+        event:"formulario",
+         term:message,
+         email:email,
+      }
+    });
+
     emailjs
       .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_USER_ID")
       .then(
